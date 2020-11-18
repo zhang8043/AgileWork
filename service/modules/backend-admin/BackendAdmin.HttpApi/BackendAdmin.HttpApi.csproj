@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>BackendAdmin</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="3.3.0" />
+    <ProjectReference Include="..\BackendAdmin.Application.Contracts\BackendAdmin.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

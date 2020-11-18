@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <Import Project="..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\framework\Agile.Abp.Settings\Agile.Abp.Settings.csproj" />
+    <ProjectReference Include="..\Agile.Abp.FileManagement.Application.Contracts\Agile.Abp.FileManagement.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

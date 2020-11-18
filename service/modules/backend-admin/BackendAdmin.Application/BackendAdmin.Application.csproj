@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\..\common.props" />
+  
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>BackendAdmin</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="3.3.0" />
+    <ProjectReference Include="..\BackendAdmin.Application.Contracts\BackendAdmin.Application.Contracts.csproj" />
+    <ProjectReference Include="..\BackendAdmin.Domain\BackendAdmin.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

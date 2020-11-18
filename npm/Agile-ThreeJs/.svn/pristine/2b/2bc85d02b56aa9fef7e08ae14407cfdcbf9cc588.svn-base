@@ -1,0 +1,16 @@
+<template>
+  <div>Agile-ThreeJs</div>
+</template>
+
+<script>
+export default {
+  computed: {},
+  data() {
+    return {}
+  },
+  mounted() {},
+  methods: {},
+}
+</script>
+
+<style lang="scss"></style>

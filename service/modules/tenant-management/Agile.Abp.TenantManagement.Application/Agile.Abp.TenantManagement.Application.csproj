@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Agile.Abp.MultiTenancy\Agile.Abp.MultiTenancy.csproj" />
+    <ProjectReference Include="..\Agile.Abp.TenantManagement.Application.Contracts\Agile.Abp.TenantManagement.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+
+  internal-gateway:
+    image: 'yrihr-microservice-internal-gateway:${TAG:-latest}'
+    build:
+      context: ./service
+      dockerfile: gateways/InternalGateway.Host/Dockerfile
+      
+  backend-admin-gateway:
+    image: 'yrihr-microservice-backend-admin-gateway:${TAG:-latest}'
+    build:
+      context: ./service
+      dockerfile: gateways/BackendAdminGateway.Host/Dockerfile
+
+  auth-server:
+    image: 'yrihr-microservice-auth-server:${TAG:-latest}'
+    build:
+      context: ./service
+      dockerfile: auth/AuthServer.Host/Dockerfile
+
+  backend-admin-server:
+    image: 'yrihr-microservice-backend-admin-server:${TAG:-latest}'
+    build:
+      context: ./service
+      dockerfile: microservices/BackendAdminService.Host/Dockerfile
+
+volumes:
+  dbdata:
+  esdata:

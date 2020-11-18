@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <Import Project="..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Agile\Abp\IdentityServer\Localization\SmsValidator\en.json" />
+    <None Remove="Agile\Abp\IdentityServer\Localization\SmsValidator\zh-Hans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Agile\Abp\IdentityServer\Localization\SmsValidator\en.json" />
+    <EmbeddedResource Include="Agile\Abp\IdentityServer\Localization\SmsValidator\zh-Hans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.IdentityServer.Domain" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\account\Agile.Abp.Account.Domain\Agile.Abp.Account.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

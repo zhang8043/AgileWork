@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Agile.Abp.IdentityServer.Application.Contracts\Agile.Abp.IdentityServer.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Agile.Abp.IdentityServer.Domain\Agile.Abp.IdentityServer.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

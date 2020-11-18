@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>BackendAdmin</RootNamespace>
+    <PreserveCompilationReferences>true</PreserveCompilationReferences>
+    <UserSecretsId>BackendAdmin-c2d31439-b723-48e2-b061-5ebd7aeb6010</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.4.0" />
+    <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="IdentityModel" Version="4.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8" />
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.EventBus.RabbitMQ" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.Identity.EntityFrameworkCore" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.IdentityServer.EntityFrameworkCore" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.IdentityServer" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\modules\account\Agile.Abp.Account.Application.Contracts\Agile.Abp.Account.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\modules\account\Agile.Abp.Account.Application\Agile.Abp.Account.Application.csproj" />
+    <ProjectReference Include="..\..\modules\account\Agile.Abp.Account.HttpApi\Agile.Abp.Account.HttpApi.csproj" />
+    <ProjectReference Include="..\..\modules\audit-logging\Agile.Abp.Auditing.Application\Agile.Abp.Auditing.Application.csproj" />
+    <ProjectReference Include="..\..\modules\audit-logging\Agile.Abp.Auditing.HttpApi\Agile.Abp.Auditing.HttpApi.csproj" />
+    <ProjectReference Include="..\..\modules\backend-admin\BackendAdmin.Application\BackendAdmin.Application.csproj" />
+    <ProjectReference Include="..\..\modules\backend-admin\BackendAdmin.EntityFrameworkCore\BackendAdmin.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\modules\backend-admin\BackendAdmin.HttpApi\BackendAdmin.HttpApi.csproj" />
+    <ProjectReference Include="..\..\modules\file-management\Agile.Abp.FileManagement.Application.Contracts\Agile.Abp.FileManagement.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\modules\identityServer\Agile.Abp.IdentityServer.Application.Contracts\Agile.Abp.IdentityServer.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\modules\identityServer\Agile.Abp.IdentityServer.Application\Agile.Abp.IdentityServer.Application.csproj" />
+    <ProjectReference Include="..\..\modules\identityServer\Agile.Abp.IdentityServer.EntityFrameworkCore\Agile.Abp.IdentityServer.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\modules\identityServer\Agile.Abp.IdentityServer.HttpApi\Agile.Abp.IdentityServer.HttpApi.csproj" />
+    <ProjectReference Include="..\..\modules\identity\Agile.Abp.Identity.Application.Contracts\Agile.Abp.Identity.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\modules\identity\Agile.Abp.Identity.Application\Agile.Abp.Identity.Application.csproj" />
+    <ProjectReference Include="..\..\modules\identity\Agile.Abp.Identity.EntityFrameworkCore\Agile.Abp.Identity.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\modules\identity\Agile.Abp.Identity.HttpApi\Agile.Abp.Identity.HttpApi.csproj" />
+    <ProjectReference Include="..\..\modules\setting-management\Agile.Abp.SettingManagement.Application\Agile.Abp.SettingManagement.Application.csproj" />
+    <ProjectReference Include="..\..\modules\setting-management\Agile.Abp.SettingManagement.HttpApi\Agile.Abp.SettingManagement.HttpApi.csproj" />
+    <ProjectReference Include="..\..\modules\tenant-management\Agile.Abp.MultiTenancy.DbFinder\Agile.Abp.MultiTenancy.DbFinder.csproj" />
+    <ProjectReference Include="..\..\modules\tenant-management\Agile.Abp.TenantManagement.Application\Agile.Abp.TenantManagement.Application.csproj" />
+    <ProjectReference Include="..\..\modules\tenant-management\Agile.Abp.TenantManagement.HttpApi\Agile.Abp.TenantManagement.HttpApi.csproj" />
+    <ProjectReference Include="..\..\shared\Agile.Shared\Agile.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Logs\**" />
+    <Content Remove="Logs\**" />
+    <EmbeddedResource Remove="Logs\**" />
+    <None Remove="Logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

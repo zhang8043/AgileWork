@@ -1,47 +1,65 @@
 version: '3.7'
 
 services:
-  
-  sqlserver:
+
+  mysql:
     environment:
-      - SA_PASSWORD=yourStrongPassword123
+      MYSQL_ROOT_PASSWORD: qZ0HtuaDJQ**
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+      --default-time-zone=+8:00
+    ports:
+      - 3306:3306
+    
+  sqlserver:
+    volumes:
+      - ./data/mssql:/var/opt/mssql/data
+    environment:
+      - SA_PASSWORD=qZ0HtuaDJQ**
       - ACCEPT_EULA=Y
     ports:
-      - "1433:1433"
+      - '1433:1433'
 
   mongodb:
     ports:
-      - "27017:27017"
+      - '27017:27017'
 
   rabbitmq:
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: qZ0HtuaDJQ**
     ports:
-      - "15672:15672"
-      - "5672:5672"
+      - '15672:15672'
+      - '5672:5672'
 
   redis:
     ports:
-      - "6379:6379"
+      - '6379:6379'
 
   elasticsearch:
     volumes:
       - ./elk/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
     environment:
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - 'ES_JAVA_OPTS=-Xms512m -Xmx512m'
     ports:
-      - "9200:9200"
+      - '9200:9200'
 
   logstash:
     volumes:
       - ./elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - ./elk/logstash/pipeline:/usr/share/logstash/pipeline:ro
     environment:
-      - "LS_JAVA_OPTS=-Xmx256m -Xms256m"
+      - 'LS_JAVA_OPTS=-Xmx256m -Xms256m'
     ports:
-      - "9600"
-      - "5000"
+      - '9600'
+      - '5000'
 
   kibana:
     volumes:
       - ./elk/kibana/config/:/usr/share/kibana/config:ro
     ports:
-      - 51510:5601
+      - 5601:5601

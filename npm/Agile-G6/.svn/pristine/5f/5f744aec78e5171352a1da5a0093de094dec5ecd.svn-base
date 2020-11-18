@@ -1,0 +1,70 @@
+{
+  "name": "agile-g6",
+  "author": {
+    "name": "ZYP",
+    "url": "https://github.com/zhang8043",
+    "email": "80439484@qq.com"
+  },
+  "version": "1.0.0",
+  "main": "lib/index.umd.min.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name AgileG6 --dest lib --filename index --formats umd-min ./packages/index.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.7",
+    "@vue/cli-plugin-eslint": "^4.5.7",
+    "@vue/cli-service": "^4.5.7",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.6.5",
+    "eslint": "^7.11.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.3",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/zhang8043/agile-g6"
+  },
+  "keywords": [
+    "vue",
+    "form",
+    "design"
+  ],
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {
+      "no-console": "off",
+      "no-debugger": "off",
+      "no-control-regex": 0
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,71 @@
+version: '3.7'
+
+services:
+  
+  internal-gateway:
+    environment:
+      - ElasticSearch__Url=http://localhost:9200
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:65129
+      - AuthServer__Authority=http://localhost:64999
+      - AuthServer__ApiName=InternalGateway
+      - ConnectionStrings__Default=Server=sqlserver;Database=Yrihr_Identity;Trusted_Connection=True;MultipleActiveResultSets=true;User=sa;Password=qZ0HtuaDJQ**;Integrated Security=false
+      - Redis__Configuration=redis
+      - ReRoutes__0__DownstreamHostAndPorts__0__Host=localhost
+      - ReRoutes__0__DownstreamHostAndPorts__0__Port=44322
+      - ReRoutes__1__DownstreamHostAndPorts__0__Host=localhost
+      - ReRoutes__1__DownstreamHostAndPorts__0__Port=44322
+      - GlobalConfiguration__BaseUrl=http://localhost:65129
+    volumes:
+      - ./logs/internal-gateway:/app/Logs/
+    ports:
+      - 65129:65129
+
+  backend-admin-gateway:
+    environment:
+      - ElasticSearch__Url=http://localhost:9200
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:65115
+      - RemoteServices__Default__BaseUrl=http://localhost:65115/
+      - AuthServer__Authority=http://localhost:64999
+      - AuthServer__ApiName=BackendAdminAppGateway
+      - ConnectionStrings__Default=Server=sqlserver;Database=Yrihr_Identity;Trusted_Connection=True;MultipleActiveResultSets=true;User=sa;Password=qZ0HtuaDJQ**;Integrated Security=false
+      - Redis__Configuration=redis
+      - GlobalConfiguration__BaseUrl=http://localhost:65115
+    volumes:
+      - ./logs/backend-admin-gateway:/app/Logs/
+    ports:
+      - 65115:65115
+  
+  auth-server:
+    environment:
+      - ElasticSearch__Url=http://localhost:9200
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:64999
+      - ConnectionStrings__Default=Server=sqlserver;Database=Yrihr_Identity;Trusted_Connection=True;MultipleActiveResultSets=true;User=sa;Password=qZ0HtuaDJQ**;Integrated Security=false
+      - Redis__Configuration=redis
+      - RabbitMQ__Connections__Default__HostName=rabbitmq
+      - IdentityServer__Clients__AuthManagement__ClientId=auth-management
+      - IdentityServer__Clients__AuthManagement__RootUrl=http://localhost:44313/
+      - IdentityServer__Clients__AuthBackendAdmin__ClientId=backend-admin-client
+      - IdentityServer__Clients__AuthApiGateway__ClientId=apigateway-host-client
+    volumes:
+      - ./logs/auth-server:/app/Logs/
+    ports:
+      - 64999:64999
+
+  backend-admin-server:
+    environment:
+      - ElasticSearch__Url=http://localhost:9200
+      - App__CorsOrigins=https://*.BackendAdmin.com,http://localhost:4200,http://localhost:44307,https://localhost:44307
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:44322
+      - AuthServer__Authority=http://localhost:64999
+      - AuthServer__ApiName=BackendAdmin
+      - ConnectionStrings__Default=Server=sqlserver;Database=Yrihr_Identity;Trusted_Connection=True;MultipleActiveResultSets=true;User=sa;Password=qZ0HtuaDJQ**;Integrated Security=false
+      - Redis__Configuration=redis
+      - RabbitMQ__Connections__Default__HostName=rabbitmq
+    volumes:
+      - ./logs/backend-admin-server:/app/Logs/
+    ports:
+      - 44322:44322

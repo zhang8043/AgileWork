@@ -1,0 +1,9 @@
+﻿{
+  "culture": "en",
+  "texts": {
+    "Permission:SettingManagement": "SettingManagement",
+    "Permission:Settings": "Settings",
+    "Permission:Update": "Update",
+    "Permission:Manager": "Manager"
+  }
+}

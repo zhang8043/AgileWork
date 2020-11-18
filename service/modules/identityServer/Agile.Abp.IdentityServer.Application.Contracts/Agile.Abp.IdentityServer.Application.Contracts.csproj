@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <Import Project="..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Agile\Abp\IdentityServer\Localization\Resources\en.json" />
+    <None Remove="Agile\Abp\IdentityServer\Localization\Resources\zh-Hans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Agile\Abp\IdentityServer\Localization\Resources\en.json" />
+    <EmbeddedResource Include="Agile\Abp\IdentityServer\Localization\Resources\zh-Hans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="3.3.0" />
+    <PackageReference Include="Volo.Abp.IdentityServer.Domain.Shared" Version="3.3.0" />
+  </ItemGroup>
+
+</Project>
