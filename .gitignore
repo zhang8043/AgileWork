@@ -6,6 +6,7 @@
 
 # Logs
 Logs/
+Web/
 
 # Generated files
 project.lock.json
